@@ -43,6 +43,44 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="./resources/assets/css/style.css">
     <!-- END Custom CSS-->
+
+<script>
+    
+	function display(data) {
+		var result = '';
+		$(data).each(function(idx, item) {
+			result += '<figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">';
+			result += '<h5>';
+			result += item.agency;
+			result += ' - ';
+			result += item.productname;
+			result += '</h5>';
+			result += item.adurl;
+			result += '</figure>';
+			
+		});
+		$('#playlist').html(result);
+	};
+
+	function getData() {
+		$.ajax({
+			url : 'playlistgetdata',
+			dataType : "json",
+			success : function(data) {
+				display(data);
+			},
+		     error:function(request,status,error){
+		         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		        }
+		})
+	};
+
+	$(document).ready(function() {
+		getData();
+	});
+    
+</script>
+    
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
@@ -72,7 +110,15 @@
 <!-- Image grid -->
 <section id="image-gallery" class="card">
   <div class="card-header">
-    <h4 class="card-title"></h4>
+    <h4 class="card-title">
+    Category &nbsp; [ &nbsp;
+    <a href="#">living</a> &nbsp;
+    <a href="#">food</a> &nbsp;
+    <a href="#">fashion</a> &nbsp;
+    <a href="#">culture</a> &nbsp;
+    <a href="#">etc</a>
+    &nbsp; ]
+    </h4>
     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
         <div class="heading-elements">
           <ul class="list-inline mb-0">
@@ -85,61 +131,7 @@
   </div>
   <div class="card-body collapse in">
     <div class="card-block  my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-      <div class="row">
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-      </div>
-      <div class="row">
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/yshNZlWezDk\" allowfullscreen=""></iframe>
-		</figure>
-      </div>
-      <div class="row">
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-      </div>
-      <div class="row">
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
-        <figure class="col-lg-3 col-md-6 col-xs-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<iframe class="img-thumbnail" src="https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen=""></iframe>         	  	   
-        </figure>
+      <div class="row" id = "playlist">
       </div>
     </div>
     <!--/ Image grid -->
@@ -235,7 +227,7 @@
     <script src="./resources/app-assets/vendors/js/gallery/photo-swipe/photoswipe-ui-default.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
-    <script src="./resources/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <!-- <script src="./resources/app-assets/js/core/app-menu.js" type="text/javascript"></script> -->
     <script src="./resources/app-assets/js/core/app.js" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
