@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.sds.finalpj.vo.Advertisement;
 import com.sds.finalpj.vo.UserInterest;
 import com.sds.finalpj.vo.Users;
 
@@ -65,5 +66,21 @@ public class UsersDao implements InterfaceDao{
 	public ArrayList<UserInterest> interestSelectAll() {
 		return null;
 	}
+	
+	
+	
+	// **************************Advertisement start*****************************
+	@Override
+	public Advertisement AdvertisementSelect(String productname) { return null; }
 
+	@Override
+	public ArrayList<Advertisement> AdvertisementSelect_agency(String agency) { return null; }
+	
+	@Override
+	public ArrayList<Advertisement> AdvertisementSelect_adcategory(String adcategory) { return null; }
+
+	@Override
+	public ArrayList<Advertisement> AdvertisementSelectAll() { return null; }
+	// **************************Advertisement end*****************************
+	
 }
