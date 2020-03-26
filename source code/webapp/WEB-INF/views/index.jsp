@@ -182,20 +182,8 @@
           </li>
           <li class=" nav-item"><a href="table"><i class="icon-table2"></i><span data-i18n="nav.bootstrap_tables.table_basic" class="menu-title">User List</span></a>
           </li>
-
-
-          <li class=" nav-item"><a href="#"><i class="icon-stats-dots"></i><span data-i18n="nav.chartjs.main" class="menu-title">Chartjs</span></a>
-            <ul class="menu-content">
-              <li><a href="userschart" data-i18n="nav.chartjs.chartjs_line_charts" class="menu-item">Users</a>
-              </li>
-              <li><a href="chartjs-bar-charts.html" data-i18n="nav.chartjs.chartjs_bar_charts" class="menu-item">Bar charts</a>
-              </li>
-              <li><a href="chartjs-pie-doughnut-charts.html" data-i18n="nav.chartjs.chartjs_pie_doughnut_charts" class="menu-item">Pie &amp; Doughnut charts</a>
-              </li>
-            </ul>
+          <li class=" nav-item"><a href="chart"><i class="icon-stats-dots"></i><span data-i18n="nav.chartjs.main" class="menu-title">Chart</span></a>
           </li>
-			          
-
           <li class=" nav-item"><a href="map"><i class="icon-map22"></i><span data-i18n="nav.maps.main" class="menu-title">Maps</span></a>
           </li>  
           <li class=" nav-item"><a href="playlist"><i class="icon-copy"></i><span data-i18n="nav.changelog.main" class="menu-title">Advertising list</span></a>
