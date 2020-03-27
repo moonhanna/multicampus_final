@@ -2,7 +2,6 @@ package com.sds.finalpj.vo;
 
 public class UserInterest {
 
-	int userinterest;
 	String userid;
 	String living;
 	String food;
@@ -14,24 +13,15 @@ public class UserInterest {
 		super();
 	}
 
-	public UserInterest(int userinterest, String userid, String living, String food, String fashion, String culture,
+	public UserInterest(String userid, String living, String food, String fashion, String culture,
 			String etc) {
 		super();
-		this.userinterest = userinterest;
 		this.userid = userid;
 		this.living = living;
 		this.food = food;
 		this.fashion = fashion;
 		this.culture = culture;
 		this.etc = etc;
-	}
-
-	public int getUserinterest() {
-		return userinterest;
-	}
-
-	public void setUserinterest(int userinterest) {
-		this.userinterest = userinterest;
 	}
 
 	public String getUserid() {

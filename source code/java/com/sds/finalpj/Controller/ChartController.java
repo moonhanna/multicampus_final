@@ -40,9 +40,7 @@ public class ChartController {
 
 	@RequestMapping(value = "/userschart", method = { RequestMethod.GET, RequestMethod.POST })
 	public void UsersChart(HttpServletRequest request, HttpServletResponse response) {
-
-		System.out.println("hi userschart");
-
+		
 		response.setContentType("text/json; charset=EUC-KR");
 		JSONArray ja = new JSONArray();
 		ArrayList<Advertisement> list = advertisementservice.AdvertisementSearchAll();

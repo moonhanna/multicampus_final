@@ -3,7 +3,7 @@ package com.sds.finalpj.vo;
 import java.util.Date;
 
 public class Advertisement {
-	
+
 	String productname;
 	String adcategory;
 	String agency;
@@ -11,17 +11,17 @@ public class Advertisement {
 	String subscriptionlevel;
 	Date registerdate;
 	String totalplayingtime;
-	String playingtime;	
-	
+	String playingtime;
+
 	public Advertisement() {
 		super();
 	}
 
-	public Advertisement(String productname, String category, String agency, String adurl, String subscriptionlevel,
+	public Advertisement(String productname, String adcategory, String agency, String adurl, String subscriptionlevel,
 			Date registerdate, String totalplayingtime, String playingtime) {
 		super();
 		this.productname = productname;
-		this.adcategory = category;
+		this.adcategory = adcategory;
 		this.agency = agency;
 		this.adurl = adurl;
 		this.subscriptionlevel = subscriptionlevel;
@@ -38,12 +38,12 @@ public class Advertisement {
 		this.productname = productname;
 	}
 
-	public String getCategory() {
+	public String getAdcategory() {
 		return adcategory;
 	}
 
-	public void setCategory(String category) {
-		this.adcategory = category;
+	public void setAdcategory(String adcategory) {
+		this.adcategory = adcategory;
 	}
 
 	public String getAgency() {
@@ -93,6 +93,5 @@ public class Advertisement {
 	public void setPlayingtime(String playingtime) {
 		this.playingtime = playingtime;
 	}
-
 
 }
