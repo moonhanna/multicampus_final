@@ -1,6 +1,7 @@
 package com.sds.finalpj.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -42,11 +43,6 @@ public class UsersDao implements InterfaceDao{
 		
 		list = (ArrayList<Users>) template.query(sql,new BeanPropertyRowMapper<Users>(Users.class));
 		
-		for(Users user : list)
-		{
-			System.out.println(user.getUserid());
-		}
-		
 		return list;
 	}
 
@@ -64,7 +60,13 @@ public class UsersDao implements InterfaceDao{
 
 	@Override
 	public ArrayList<UserInterest> interestSelectAll() {
-		return null;
+		
+		ArrayList<UserInterest> list = null;
+		final String sql = "SELECT * FROM userinterest";
+		
+		list = (ArrayList<UserInterest>) template.query(sql,new BeanPropertyRowMapper<UserInterest>(UserInterest.class));
+		
+		return list;
 	}
 	
 	
@@ -77,7 +79,7 @@ public class UsersDao implements InterfaceDao{
 	public ArrayList<Advertisement> AdvertisementSelect_agency(String agency) { return null; }
 	
 	@Override
-	public ArrayList<Advertisement> AdvertisementSelect_adcategory(String adcategory) { return null; }
+	public List<Advertisement> AdvertisementSelect_adcategory(String adcategory) { return null; }
 
 	@Override
 	public ArrayList<Advertisement> AdvertisementSelectAll() { return null; }

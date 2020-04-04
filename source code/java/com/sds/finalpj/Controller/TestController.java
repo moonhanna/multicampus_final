@@ -6,18 +6,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UsersChartController {
+public class TestController {
 
-	@RequestMapping(value = "/userschart", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView UsersChart() {
-		
+	@RequestMapping(value = "/test", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView test() {
+
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("center", "userschart");
+		mv.addObject("center", "test");
 		mv.setViewName("index");
-		
-		return mv;
-		
-	}
 
+		return mv;
+
+	}
 
 }

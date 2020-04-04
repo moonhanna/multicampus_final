@@ -5,6 +5,8 @@
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  <script src="https://playground.abysscorp.org/chartjs/livecharts/dist/Chart.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -164,15 +166,11 @@
       </div>
     </nav>
 
-
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
-
-
     <!-- main menu-->
     <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
       <!-- main menu header-->
       <div class="main-menu-header">
-      <input type="text" placeholder="Search" class="menu-search form-control round"/>
+      
       </div>
       <!-- / main menu header-->
       <!-- main menu content-->
@@ -182,7 +180,15 @@
           </li>
           <li class=" nav-item"><a href="table"><i class="icon-table2"></i><span data-i18n="nav.bootstrap_tables.table_basic" class="menu-title">User List</span></a>
           </li>
-          <li class=" nav-item"><a href="chart"><i class="icon-stats-dots"></i><span data-i18n="nav.chartjs.main" class="menu-title">Chart</span></a>
+          <li class=" nav-item"><a href="#"><i class="icon-stats-dots"></i><span data-i18n="nav.chartjs.main" class="menu-title">Chart</span></a>
+            <ul class="menu-content">
+              <li><a href="chart" data-i18n="nav.chartjs.chartjs_line_charts" class="menu-item">Line charts</a>
+              </li>
+              <li><a href="chartjs-bar-charts.html" data-i18n="nav.chartjs.chartjs_bar_charts" class="menu-item">Bar charts</a>
+              </li>
+              <li><a href="test" data-i18n="nav.chartjs.chartjs_pie_doughnut_charts" class="menu-item">Pie &amp; Doughnut charts</a>
+              </li>
+            </ul>
           </li>
           <li class=" nav-item"><a href="map"><i class="icon-map22"></i><span data-i18n="nav.maps.main" class="menu-title">Maps</span></a>
           </li>  
@@ -196,7 +202,6 @@
     </div>
     <!-- / main menu-->
 
-
 	<section>	
 		<c:choose>
 			<c:when test="${center == null }">
@@ -207,9 +212,6 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
-
-
-
 
     <footer class="footer footer-static footer-light navbar-border">
       <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
@@ -228,12 +230,15 @@
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="./resources/app-assets/vendors/js/charts/chart.min.js" type="text/javascript"></script>
+    <script src="./resources/app-assets/vendors/js/charts/flot/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="./resources/app-assets/vendors/js/charts/flot/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="./resources/app-assets/vendors/js/charts/flot/jquery.flot.time.js" type="text/javascript"></script>
+    <script src="./resources/app-assets/vendors/js/charts/flot/jquery.flot.selection.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
     <script src="./resources/app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="./resources/app-assets/js/core/app.js" type="text/javascript"></script>
     <!-- END ROBUST JS-->
-
   </body>
 </html>
 
