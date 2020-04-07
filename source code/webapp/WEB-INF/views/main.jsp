@@ -1,5 +1,11 @@
+<style>
+#chart {
+	max-width: 100%;
+	margin: 35px auto;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-
 function Sendfcm(ip, idx)
 {      
 		var speed = $("#speed"+idx).val();
@@ -18,7 +24,9 @@ function Sendfcm(ip, idx)
 
 	function display(data) {
 		var result = '';
-		$(data).each(function(idx, item) {			
+		var clientcount = 0;
+		$(data).each(function(idx, item) {
+			clientcount++;
 			result += '<tr>';
 			result += '<td class="text-truncate">';
 			result += '<input type="hidden" value = "'+item.ip+'" id = "'+idx+'">';
@@ -34,12 +42,14 @@ function Sendfcm(ip, idx)
 			result += '</tr>';
 		});
 		$('#clientip').html(result);
+		$('#clientnum').html(clientcount);
 	};
 
 	function getData() {
 		$.ajax({
 			url : 'clientgetdata',
 			dataType : "json",
+			async:false,
 			success : function(data) {
 				display(data);
 			},
@@ -48,14 +58,15 @@ function Sendfcm(ip, idx)
 			}
 		})
 	};
-
+	
 	$(document).ready(function() {
+		
 		setInterval(getData,10000);
 
 	});
 	
 </script>
-        
+
     <div class="app-content content container-fluid">
       <div class="content-wrapper">
         <div class="content-header row">
@@ -126,40 +137,13 @@ function Sendfcm(ip, idx)
 <!--/ Statistics -->
 
 <!--/ project charts -->
-<section id="google-bar-charts">
 
-    <!-- Stacked Bar Chart -->
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Stacked Bar Chart</h4>
-                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                    <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>  
-                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body collapse in">
-                    <div class="card-block">
-                        <p class="card-text">A stacked bar chart is a bar chart that places related values atop one another. If there are any negative values, they are stacked in reverse order below the chart's axis baseline. Stacked bar charts are typically used when a category naturally divides into components. For instance, consider some hypothetical book sales, divided by genre and compared across time:</p>
-                        <div id="stacked-bar-chart"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="chart"></div>
 
-</section>
 <!--/ project charts -->
 
 <!-- projects table with monthly chart -->
 <div class="row">
-
         <div class="col-xl-4 col-md-6 col-sm-12">
         <div class="card">
             <div class="card-body">
@@ -182,7 +166,7 @@ function Sendfcm(ip, idx)
     <div class="col-xl-8 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Ongoing Projects</h4>
+                <h4 class="card-title">Connected Client list</h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -205,10 +189,7 @@ function Sendfcm(ip, idx)
                                 <th>Send</th>
                             </tr>
                         </thead>
-                        <tbody id = "clientip">
-
-
-                        </tbody>
+                        <tbody id = "clientip"></tbody>
                     </table>
                 </div>
             </div>
@@ -220,8 +201,10 @@ function Sendfcm(ip, idx)
 </div>
 
 <!-- BEGIN PAGE LEVEL JS-->
+<!-- BEGIN PAGE LEVEL JS-->
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="./resources/app-assets/js/scripts/charts/google/bar/bar-stacked.js" type="text/javascript"></script>
+<script src="./resources/app-assets/js/scripts/charts/google/bar/bar-stacked.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
-
-
+<script src="./resources/app-assets/js/scripts/mainchartdraw.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL JS-->
