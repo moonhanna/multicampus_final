@@ -57,7 +57,7 @@
 
 > 관리자 페이지
 >
-> <img width="1280" alt="main" src="https://user-images.githubusercontent.com/36683607/78957333-08800900-7b20-11ea-8909-0b056774936f.png"
+> <img width="1280" alt="main" src="https://user-images.githubusercontent.com/36683607/78957622-d1f6be00-7b20-11ea-8e39-baf8f2ad6468.png">
 >
 > <img width="1278" alt="userlist" src="https://user-images.githubusercontent.com/36683607/78957319-03bb5500-7b20-11ea-9d48-4cab5da84e2b.png">
 >
