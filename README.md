@@ -43,16 +43,11 @@
   
 
 ### 구성 아키텍처
-
-<<<<<<< HEAD
-![](.\img\구성도 업데이트.png)
+![구성도 업데이트](https://user-images.githubusercontent.com/36683607/78957320-0453eb80-7b20-11ea-9c9d-4e66f710dae5.png)
 
 ### ERD
-=======
-![구성도 업데이트](https://user-images.githubusercontent.com/36683607/78957320-0453eb80-7b20-11ea-9c9d-4e66f710dae5.png)
->>>>>>> 2a63937c5b2f402e15f6a168d1317a2531f16e3f
+<img width="517" alt="ERD 업데이트" src="https://user-images.githubusercontent.com/36683607/79045155-9bb25f00-7c44-11ea-9e26-df0fb1768036.PNG">
 
-![](.\img\ERD 업데이트.PNG)
 
 ### 개발방안(알고리즘의 구현 요소)
 
