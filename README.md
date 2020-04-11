@@ -44,9 +44,13 @@
 
 ### 구성 아키텍처
 
+<<<<<<< HEAD
 ![](.\img\구성도 업데이트.png)
 
 ### ERD
+=======
+![구성도 업데이트](https://user-images.githubusercontent.com/36683607/78957320-0453eb80-7b20-11ea-9c9d-4e66f710dae5.png)
+>>>>>>> 2a63937c5b2f402e15f6a168d1317a2531f16e3f
 
 ![](.\img\ERD 업데이트.PNG)
 
@@ -60,39 +64,39 @@
 
 > 관리자 페이지
 >
-> ![](.\img\main.png)
+> <img width="1280" alt="main" src="https://user-images.githubusercontent.com/36683607/78957622-d1f6be00-7b20-11ea-8e39-baf8f2ad6468.png">
 >
-> ![](.\img\userlist.png)
+> <img width="1278" alt="userlist" src="https://user-images.githubusercontent.com/36683607/78957319-03bb5500-7b20-11ea-9d48-4cab5da84e2b.png">
 >
-> ![](.\img\chart1.png)
+> <img width="1277" alt="chart1" src="https://user-images.githubusercontent.com/36683607/78957571-a83d9700-7b20-11ea-8eb2-ab90d508c07f.png">
 >
-> ![](.\img\chart2.png)
+> <img width="1279" alt="chart2" src="https://user-images.githubusercontent.com/36683607/78957331-074edc00-7b20-11ea-9035-6f16f2e13725.png">
 >
-> ![](.\img\maps.png)
+> <img width="1280" alt="maps" src="https://user-images.githubusercontent.com/36683607/78957313-00c06480-7b20-11ea-9ce5-3f3023435be9.png">
 >
-> ![](.\img\adlist.png)
+> <img width="1277" alt="adlist" src="https://user-images.githubusercontent.com/36683607/78957322-04ec8200-7b20-11ea-8b7a-aa1a1d2176c2.png">
 >
-> ![](.\img\sn.png)
+> <img width="1276" alt="sn" src="https://user-images.githubusercontent.com/36683607/78957316-0322be80-7b20-11ea-92a7-027d9fbdadfa.png">
 >
 > 클라이언트 앱
 >
-> ![](.\img\capp1.jpg)
+> ![capp1](https://user-images.githubusercontent.com/36683607/78957328-061daf00-7b20-11ea-88da-032b4bbab84e.jpg)
 >
-> ![](.\img\capp2.jpg)
+> ![capp2](https://user-images.githubusercontent.com/36683607/78957576-aa9ff100-7b20-11ea-823b-910c10dfa508.jpg)
 >
 > 인포매틱스
 >
-> ![](.\img\app1.jpg)
+> ![app1](https://user-images.githubusercontent.com/36683607/78957325-05851880-7b20-11ea-875e-04ec5a99879d.jpg)
 >
-> ![](.\img\app2.jpg)
+> ![app2](https://user-images.githubusercontent.com/36683607/78957326-061daf00-7b20-11ea-84cb-cdd1a4842bd6.jpg)
 
 ### 수행일정
 
-![](.\img\t.PNG)
+<img width="470" alt="t" src="https://user-images.githubusercontent.com/36683607/78957317-03bb5500-7b20-11ea-80c9-68e0b6e5ef4f.PNG">
 
 ### 기타(알고리즘, Decision Tree)
 
-![](.\img\dt.PNG)
+<img width="419" alt="dt" src="https://user-images.githubusercontent.com/36683607/78957332-07e77280-7b20-11ea-8bbf-1e26bf9a29db.PNG">
 
 ### 결론
 
