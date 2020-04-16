@@ -1,23 +1,40 @@
 package com.sds.finalpj.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.sds.finalpj.vo.Adcategory;
 import com.sds.finalpj.vo.Advertisement;
-import com.sds.finalpj.vo.UserInterest;
 import com.sds.finalpj.vo.Users;
 
 public interface InterfaceService {
 	
 	//users
-	Users userSearch(String userid);
-	ArrayList<Users> userSearchAll();
-	UserInterest UserInterestSearch(String userid);
-	ArrayList<UserInterest> interestSearchAll();
+	default Users userSearch(String userid) {
+		return null;
+	}
+	default ArrayList<Users> userSearchAll() {
+		return null;
+	}
+	default Adcategory UserInterestSearch(int adcategoryno) {
+		return null;
+	}
+	default ArrayList<Adcategory> interestSearchAll() {
+		return null;
+	}
 	
 	//advertisement
-	Advertisement AdvertisementSearch(String productname);
-	ArrayList<Advertisement> AdvertisementSearch_agency(String agency);
-	ArrayList<Advertisement> AdvertisementSearch_adcategory(String adcategory);
-	ArrayList<Advertisement> AdvertisementSearchAll();
+	default Advertisement AdvertisementSearch(String adcategoty) {
+		return null;
+	}
+	default ArrayList<Advertisement> AdvertisementSearch_agency(String agency) {
+		return null;
+	}
+	default List<Advertisement> AdvertisementSearch_adcategory(String adcategory) {
+		return null;
+	}
+	default ArrayList<Advertisement> AdvertisementSearchAll() {
+		return null;
+	}
 
 }

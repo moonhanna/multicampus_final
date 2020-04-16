@@ -1,7 +1,6 @@
 package com.sds.finalpj.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -9,8 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.sds.finalpj.vo.Advertisement;
-import com.sds.finalpj.vo.UserInterest;
+import com.sds.finalpj.vo.Adcategory;
 import com.sds.finalpj.vo.Users;
 
 @Repository
@@ -47,42 +45,26 @@ public class UsersDao implements InterfaceDao{
 	}
 
 	@Override
-	public UserInterest UserInterestSelect(String userid) {
+	public Adcategory UserInterestSelect(int adcategoryno) {
 		
-		UserInterest userinterest = null;
-		final String sql = "SELECT * FROM userinterest WHERE userid = ?";
+		Adcategory userinterest = null;
+		final String sql = "SELECT * FROM adcategory WHERE adcategoryno = ?";
 		
-		userinterest = template.queryForObject(sql, new Object[] {userid}, new BeanPropertyRowMapper<UserInterest>(UserInterest.class));
+		userinterest = template.queryForObject(sql, new Object[] {adcategoryno}, new BeanPropertyRowMapper<Adcategory>(Adcategory.class));
 	
 		return userinterest;
 
 	}
 
 	@Override
-	public ArrayList<UserInterest> interestSelectAll() {
+	public ArrayList<Adcategory> interestSelectAll() {
 		
-		ArrayList<UserInterest> list = null;
-		final String sql = "SELECT * FROM userinterest";
+		ArrayList<Adcategory> list = null;
+		final String sql = "SELECT * FROM adcategory";
 		
-		list = (ArrayList<UserInterest>) template.query(sql,new BeanPropertyRowMapper<UserInterest>(UserInterest.class));
+		list = (ArrayList<Adcategory>) template.query(sql,new BeanPropertyRowMapper<Adcategory>(Adcategory.class));
 		
 		return list;
 	}
-	
-	
-	
-	// **************************Advertisement start*****************************
-	@Override
-	public Advertisement AdvertisementSelect(String productname) { return null; }
 
-	@Override
-	public ArrayList<Advertisement> AdvertisementSelect_agency(String agency) { return null; }
-	
-	@Override
-	public List<Advertisement> AdvertisementSelect_adcategory(String adcategory) { return null; }
-
-	@Override
-	public ArrayList<Advertisement> AdvertisementSelectAll() { return null; }
-	// **************************Advertisement end*****************************
-	
 }

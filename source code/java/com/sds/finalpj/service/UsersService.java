@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sds.finalpj.dao.UsersDao;
-import com.sds.finalpj.vo.Advertisement;
-import com.sds.finalpj.vo.UserInterest;
+import com.sds.finalpj.vo.Adcategory;
 import com.sds.finalpj.vo.Users;
 
 @Service
@@ -33,36 +32,19 @@ public class UsersService implements InterfaceService{
 	}
 
 	@Override
-	public UserInterest UserInterestSearch(String userid) {
+	public Adcategory UserInterestSearch(int adcategoryno) {
 		
-		UserInterest userinterest = usersdao.UserInterestSelect(userid);
+		Adcategory userinterest = usersdao.UserInterestSelect(adcategoryno);
 		
 		return userinterest;
 	}
 
 	@Override
-	public ArrayList<UserInterest> interestSearchAll() {
+	public ArrayList<Adcategory> interestSearchAll() {
 		
-		ArrayList<UserInterest> list = usersdao.interestSelectAll();
+		ArrayList<Adcategory> list = usersdao.interestSelectAll();
 		
 		return list;
 	}
-
-	
-	
-	// **************************Advertisement start*****************************
-	@Override
-	public Advertisement AdvertisementSearch(String productname) { return null; }
-
-	@Override
-	public ArrayList<Advertisement> AdvertisementSearch_agency(String agency) { return null; }
-
-	@Override
-	public ArrayList<Advertisement> AdvertisementSearch_adcategory(String adcategory) { return null; }
-
-	@Override
-	public ArrayList<Advertisement> AdvertisementSearchAll() { return null; }
-	// **************************Advertisement end*****************************	
-	
 
 }

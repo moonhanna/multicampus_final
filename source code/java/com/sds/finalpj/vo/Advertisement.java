@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Advertisement {
 
-	String productname;
+	int advertisementno;
+	int productno;
 	String adcategory;
 	String agency;
 	String adurl;
@@ -12,15 +13,19 @@ public class Advertisement {
 	Date registerdate;
 	String totalplayingtime;
 	String playingtime;
+	int couponno;
+	int daycount;
 
 	public Advertisement() {
 		super();
 	}
 
-	public Advertisement(String productname, String adcategory, String agency, String adurl, String subscriptionlevel,
-			Date registerdate, String totalplayingtime, String playingtime) {
+	public Advertisement(int advertisementno, int productno, String adcategory, String agency, String adurl,
+			String subscriptionlevel, Date registerdate, String totalplayingtime, String playingtime, int couponno,
+			int daycount) {
 		super();
-		this.productname = productname;
+		this.advertisementno = advertisementno;
+		this.productno = productno;
 		this.adcategory = adcategory;
 		this.agency = agency;
 		this.adurl = adurl;
@@ -28,14 +33,24 @@ public class Advertisement {
 		this.registerdate = registerdate;
 		this.totalplayingtime = totalplayingtime;
 		this.playingtime = playingtime;
+		this.couponno = couponno;
+		this.daycount = daycount;
 	}
 
-	public String getProductname() {
-		return productname;
+	public int getAdvertisementno() {
+		return advertisementno;
 	}
 
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setAdvertisementno(int advertisementno) {
+		this.advertisementno = advertisementno;
+	}
+
+	public int getProductno() {
+		return productno;
+	}
+
+	public void setProductno(int productno) {
+		this.productno = productno;
 	}
 
 	public String getAdcategory() {
@@ -92,6 +107,22 @@ public class Advertisement {
 
 	public void setPlayingtime(String playingtime) {
 		this.playingtime = playingtime;
+	}
+
+	public int getCouponno() {
+		return couponno;
+	}
+
+	public void setCouponno(int couponno) {
+		this.couponno = couponno;
+	}
+
+	public int getDaycount() {
+		return daycount;
+	}
+
+	public void setDaycount(int daycount) {
+		this.daycount = daycount;
 	}
 
 }

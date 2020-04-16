@@ -8,14 +8,16 @@ public class Users {
 	String usergender;
 	String userphone;
 	String useremail;
+	String useraddr;
 	String useragree;
+	int adcategoryno;
 
 	public Users() {
 		super();
 	}
 
 	public Users(String userid, String userpwd, int userage, String usergender, String userphone, String useremail,
-			String useragree) {
+			String useraddr, String useragree, int adcategoryno) {
 		super();
 		this.userid = userid;
 		this.userpwd = userpwd;
@@ -23,7 +25,9 @@ public class Users {
 		this.usergender = usergender;
 		this.userphone = userphone;
 		this.useremail = useremail;
+		this.useraddr = useraddr;
 		this.useragree = useragree;
+		this.adcategoryno = adcategoryno;
 	}
 
 	public String getUserid() {
@@ -74,12 +78,28 @@ public class Users {
 		this.useremail = useremail;
 	}
 
+	public String getUseraddr() {
+		return useraddr;
+	}
+
+	public void setUseraddr(String useraddr) {
+		this.useraddr = useraddr;
+	}
+
 	public String getUseragree() {
 		return useragree;
 	}
 
 	public void setUseragree(String useragree) {
 		this.useragree = useragree;
+	}
+
+	public int getAdcategoryno() {
+		return adcategoryno;
+	}
+
+	public void setAdcategoryno(int adcategoryno) {
+		this.adcategoryno = adcategoryno;
 	}
 
 }

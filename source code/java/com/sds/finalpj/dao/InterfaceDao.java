@@ -1,22 +1,39 @@
 package com.sds.finalpj.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.sds.finalpj.vo.Adcategory;
 import com.sds.finalpj.vo.Advertisement;
-import com.sds.finalpj.vo.UserInterest;
 import com.sds.finalpj.vo.Users;
 
 public interface InterfaceDao {
 	
 	//users
-	Users userSelect(String userid);
-	ArrayList<Users> userSelectAll();
-	UserInterest UserInterestSelect(String userid);
-	ArrayList<UserInterest> interestSelectAll();
+	default Users userSelect(String userid) {
+		return null;
+	}
+	default ArrayList<Users> userSelectAll() {
+		return null;
+	}
+	default Adcategory UserInterestSelect(int adcategoryno) {
+		return null;
+	}
+	default ArrayList<Adcategory> interestSelectAll() {
+		return null;
+	}
 	
 	//advertisement
-	Advertisement AdvertisementSelect(String productname);
-	ArrayList<Advertisement> AdvertisementSelect_agency(String agency);
-	ArrayList<Advertisement> AdvertisementSelect_adcategory(String adcategory);
-	ArrayList<Advertisement> AdvertisementSelectAll();
+	default Advertisement AdvertisementSelect(String adcategoty) {
+		return null;
+	}
+	default ArrayList<Advertisement> AdvertisementSelect_agency(String agency) {
+		return null;
+	}
+	default List<Advertisement> AdvertisementSelect_adcategory(String adcategory) {
+		return null;
+	}
+	default ArrayList<Advertisement> AdvertisementSelectAll() {
+		return null;
+	}
 }
