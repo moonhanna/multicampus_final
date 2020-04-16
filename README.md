@@ -46,7 +46,7 @@
 ![구성도 업데이트](https://user-images.githubusercontent.com/36683607/78957320-0453eb80-7b20-11ea-9c9d-4e66f710dae5.png)
 
 ### ERD
-<img width="517" alt="ERD 업데이트" src="https://user-images.githubusercontent.com/36683607/79045155-9bb25f00-7c44-11ea-9e26-df0fb1768036.PNG">
+<img width="511" alt="ERD 보여주기용" src="https://user-images.githubusercontent.com/36683607/79118189-1d7ec580-7dc8-11ea-9b9b-dc743e31d09e.PNG">
 
 
 ### 개발방안(알고리즘의 구현 요소)
@@ -100,5 +100,3 @@
 당사는 향후 남은 과제를 해결하고 효율적인 IT 지원 솔루션을 제공하여 파트너 관계를 유지할 준비가 되어 있습니다. 
 
 감사합니다.
-
-OSTB
