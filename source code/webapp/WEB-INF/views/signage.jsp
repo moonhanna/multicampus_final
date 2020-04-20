@@ -1,3 +1,71 @@
+<script src="https://www.youtube.com/player_api"></script>
+
+<script>
+var player;
+var i = 0;
+var getadlist = new Array();
+
+function display(data) {
+	  $(data).each(function (idx, item) {
+	    getadlist[idx] = item.adurl;
+	  });
+	  play();
+	}
+
+	function play() {
+	  player = new YT.Player("id-player", {
+	    height: "800",
+	    width: "800",
+	    videoId: getadlist[i],
+	    playerVars: {
+	      enablejsapi: 1,
+	      autoplay: 1,
+	      loop: 0,
+	    },
+	    events: {
+	      onStateChange: onPlayerStateChange,
+	    },
+	  });
+	}
+
+	function nextplay() {
+		  player.loadVideoById(getadlist[i]);
+	}
+
+	function onPlayerStateChange(event) {
+	  console.log("onPlayerStateChange");
+	  if (event.data == YT.PlayerState.ENDED) {
+		    if(i == getadlist.length)
+		    {
+		      i = 0;
+		    }else
+		    {
+			  i++;
+		    }
+
+	    nextplay();
+	  }
+	}
+
+	function getData() {
+		$.ajax({
+			url : 'getadlist',
+			dataType : "json",
+			success : function(data) {
+				display(data);
+			},
+			error : function() {
+				alert("fail");
+			}
+		})
+	};
+
+	$(document).ready(function() {
+		getData();
+	});
+	
+</script>
+
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns"
 	class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
@@ -40,16 +108,15 @@
 										<div id="carousel-example-generic" class="carousel slide"
 											data-ride="carousel">
 											<div class="carousel-item active">
-												<iframe
-													src="https://www.youtube.com/embed/SsE5U7ta9Lw?autoplay=1&loop=1&autopause=0"
-													width="635" height="480" allow="autoplay; fullscreen"
-													allowfullscreen></iframe>
+												<div id="id-player"></div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!--  
 						<div class="col-md-6 col-sm-12">
 							<div class="card">
 								<div class="card-header">
@@ -70,57 +137,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-				<!-- Basic Carousel end -->
-
-				<section id="basic-carousel">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">Signage3</h4>
-								</div>
-								<div class="card-body collapse in">
-									<div class="card-block">
-										<div id="carousel-example-generic" class="carousel slide"
-											data-ride="carousel">
-											<div class="carousel-item active">
-												<iframe
-													src="https://www.youtube.com/embed/SsE5U7ta9Lw?autoplay=1&loop=1&autopause=0"
-													width="635" height="480" allow="autoplay; fullscreen"
-													allowfullscreen></iframe>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">Signage4</h4>
-								</div>
-								<div class="card-body collapse in">
-									<div class="card-block">
-										<div id="carousel-example-generic" class="carousel slide"
-											data-ride="carousel">
-											<div class="carousel-item active">
-												<iframe
-													src="https://www.youtube.com/embed/SsE5U7ta9Lw?autoplay=1&loop=1&autopause=0"
-													width="635" height="480" allow="autoplay; fullscreen"
-													allowfullscreen></iframe>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- Basic Carousel end -->
+						-->
+					</section>
+				</div>
 			</div>
 		</div>
-	</div>
 
 </body>
