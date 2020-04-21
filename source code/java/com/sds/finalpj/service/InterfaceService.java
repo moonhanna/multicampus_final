@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.sds.finalpj.vo.Adcategory;
 import com.sds.finalpj.vo.Advertisement;
+import com.sds.finalpj.vo.Billboard;
+import com.sds.finalpj.vo.Product;
 import com.sds.finalpj.vo.Users;
 
 public interface InterfaceService {
@@ -34,6 +36,21 @@ public interface InterfaceService {
 		return null;
 	}
 	default ArrayList<Advertisement> AdvertisementSearchAll() {
+		return null;
+	}
+	
+	default ArrayList<String> CategoryList(){
+		return null;
+	}
+	
+	//product
+	default Product ProductSearch(int productno)
+	{
+		return null;
+	}
+	
+	//billboard
+	default ArrayList<Billboard> BillboardSearchAll() {
 		return null;
 	}
 
