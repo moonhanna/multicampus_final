@@ -1,7 +1,10 @@
 package com.sds.finalpj.Controller;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +19,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import msg.Client;
+
+import com.sds.finalpj.service.AdvertisementService;
 import com.sds.finalpj.service.UsersService;
+import com.sds.finalpj.tmp.Adurl;
 import com.sds.finalpj.tmp.ClientAd;
 import com.sds.finalpj.vo.Adcategory;
+import com.sds.finalpj.vo.Advertisement;
 import com.sds.finalpj.vo.Users;
 
 @Controller
@@ -26,6 +33,9 @@ public class MainController {
 
 	@Autowired
 	UsersService usersservice;
+	
+	@Autowired
+	AdvertisementService advertisementservice;
 	
 	String id = null;
 	String userid = null;
@@ -162,12 +172,59 @@ public class MainController {
 			System.out.println("광고번호 : " + adno);
 			
 			try {
-				Client client = new Client("70.12.113.206",9999); // tcp/ip server ip
+				Client client = new Client("192.168.1.162",9999); // tcp/ip server ip
 				System.out.println("target ip : " + reid + "target adno : " + adno);
 				client.startClient(Integer.toString(adno), reid);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			Advertisement getad = advertisementservice.AdvertisementSearch_adurl(Adurl.getUrl());
+			
+			int advertisementno = getad.getAdvertisementno();
+			int productno = getad.getProductno();
+			
+			System.out.println("advertisementno ? " + advertisementno + "productno ? " + productno);
+			
+			///////////////////////////////////////////////////fcm
+			
+			URL url;
+			try {
+				url = new URL("https://fcm.googleapis.com/fcm/send");
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+				conn.setUseCaches(false);
+				conn.setDoInput(true);
+				conn.setDoOutput(true);
+
+				conn.setRequestProperty("Authorization",
+						"key=AAAA6dOwMkQ:APA91bEkmLbN6Fvg-uAHNVOnNO7gbfDt6hgfYR1WInC8myIQviXdUIpC5F65wJvVVQ5G1ClRB49RNqFf4TGj-_zK_7IPmYCen8E509jXdz6bAcyeQPPBrp6xoM5gGZ1b5NpqMDp43qiN");
+				conn.setRequestProperty("Content-Type", "application/json");
+
+				JSONObject json = new JSONObject();
+				//json.put("to","e5YHYOgrvXk:APA91bG3CV853zSOEr5_WKcS0m5xqva9fnV2dePFZfknBdjg8DzIy4X545_nlsMHivkGkSe_T2y_LvjmOapjKToOUfGH4VOs5Y1Hk4P86rSP6F39VMg_ytp4PN-gutWIW-nYO8pV6LlH");
+				
+				//pad
+				json.put("to","frMmbNfgS4qEtmDPCKP9i3:APA91bG5PVImAGHP74rUDfSwAY3q300WEXZG42cti5wJVCWrCuiuRQdysYyEXKByKyQ3gPDARoeb9g17HO28WZxWUfEPjA9uWEzAXyyRBQbegvNZXchJLGH3vhsmeGIZBt-b5pjRcz7e");
+				JSONObject info = new JSONObject();
+				JSONObject data = new JSONObject();
+				info.put("title", "***맞춤 광고가 도착했습니다***");
+				info.put("body", "확인하기");
+				json.put("notification", info);
+
+				data.put("advertisementno",advertisementno);
+				data.put("productno",productno);
+				json.put("data",data);
+				OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());
+				out.write(json.toString());
+				out.flush();
+				conn.getInputStream();
+				System.out.println("okok");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			//////////////////////////////////////////////////
 			
 		}
 
