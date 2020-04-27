@@ -1,50 +1,101 @@
 <script src="https://www.youtube.com/player_api"></script>
 
 <script>
-var player;
-var i = 0;
-var getadlist = new Array();
-
-function display(data) {
-	  $(data).each(function (idx, item) {
-	    getadlist[idx] = item.adurl;
-	  });
-	  play();
+	var player;
+	var player2;
+	var i = 0;
+	var j = 0;
+	var getadlist = new Array();
+	var tmp;
+	
+	function display(data) {
+		$(data).each(function(idx, item) {
+			getadlist[idx] = item.adurl;
+		});
+		var t = Math.random();
+		j = Math.floor(t * getadlist.length);
+		play();
 	}
 
 	function play() {
-	  player = new YT.Player("id-player", {
-	    height: "800",
-	    width: "800",
-	    videoId: getadlist[i],
-	    playerVars: {
-	      enablejsapi: 1,
-	      autoplay: 1,
-	      loop: 0,
-	    },
-	    events: {
-	      onStateChange: onPlayerStateChange,
-	    },
-	  });
+		player = new YT.Player("id-player", {
+			height : "750",
+			width : "630",
+			videoId : getadlist[i],
+			playerVars : {
+				enablejsapi : 1,
+				autoplay : 1,
+				loop : 0,
+			},
+			events : {
+				onStateChange : onPlayerStateChange,
+			},
+		});
+
+		player2 = new YT.Player("id-player2", {
+			height : "750",
+			width : "630",
+			videoId : getadlist[j],
+			playerVars : {
+				enablejsapi : 1,
+				autoplay : 1,
+				loop : 0,
+			},
+			events : {
+				onStateChange : onPlayerStateChange,
+			},
+		});
+
 	}
 
 	function nextplay() {
-		  player.loadVideoById(getadlist[i]);
+		sendData(getadlist[i]);
+		player.loadVideoById(getadlist[i]);
+
+	}
+
+	function nextplay2() {
+		player2.loadVideoById(getadlist[j]);
+
+	}
+
+	function sendData(tmp) {
+		var adData = {
+			"current_advertisement" : tmp
+		};
+
+		$.ajax({
+			url : "fcmad",
+			type : 'GET',
+			data : adData,
+			success : function(data) {
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log("error \n" + textStatus + " : " + errorThrown);
+			}
+		})
+		console.log("sendData");
 	}
 
 	function onPlayerStateChange(event) {
-	  console.log("onPlayerStateChange");
-	  if (event.data == YT.PlayerState.ENDED) {
-		    if(i == getadlist.length)
-		    {
-		      i = 0;
-		    }else
-		    {
-			  i++;
-		    }
+		var tmp = event.target.f.id;
+		console.log(tmp);
+		if (event.data == YT.PlayerState.ENDED) {
+			if (tmp == "id-player") {
+				if (i == getadlist.length) {
+					i = 0;
+				} else {
+					i++;
+				}
+				nextplay();
+			} else if (tmp == "id-player2") {
+				var tt = Math.random();
+				j = Math.floor(tt * getadlist.length);
+				nextplay2();
+			} else {
 
-	    nextplay();
-	  }
+			}
+		}
 	}
 
 	function getData() {
@@ -63,7 +114,6 @@ function display(data) {
 	$(document).ready(function() {
 		getData();
 	});
-	
 </script>
 
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns"
@@ -109,14 +159,12 @@ function display(data) {
 											data-ride="carousel">
 											<div class="carousel-item active">
 												<div id="id-player"></div>
-												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!--  
 						<div class="col-md-6 col-sm-12">
 							<div class="card">
 								<div class="card-header">
@@ -127,20 +175,16 @@ function display(data) {
 										<div id="carousel-example-generic" class="carousel slide"
 											data-ride="carousel">
 											<div class="carousel-item active">
-												<iframe
-													src="https://www.youtube.com/embed/SsE5U7ta9Lw?autoplay=1&loop=1&autopause=0"
-													width="635" height="480" allow="autoplay; fullscreen"
-													allowfullscreen></iframe>
+												<div id="id-player2"></div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						-->
-					</section>
-				</div>
+				</section>
 			</div>
 		</div>
+	</div>
 
 </body>
