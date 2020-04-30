@@ -174,7 +174,7 @@ public class MainController {
 			System.out.println("광고번호 : " + adno);
 			
 			try {
-				Client client = new Client("192.168.43.92",9999); // tcp/ip server ip
+				Client client = new Client("tcp/ip server ip",9999); // tcp/ip server ip
 				System.out.println("target ip : " + reid + "target adno : " + adno);
 				client.startClient(Integer.toString(adno), reid);
 			} catch (IOException e) {
