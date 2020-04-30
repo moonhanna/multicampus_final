@@ -42,7 +42,7 @@ public class MainController {
 	ArrayList<String> idlist = new ArrayList<String>();
 	
 	String[] userintresting = new String[3];
-	int count = 0;
+	
 
 	Logger logger = LoggerFactory.getLogger(MainController.class);
 
@@ -51,6 +51,8 @@ public class MainController {
 	
 		String useridtmp = request.getParameter("id");
 		String reid = request.getParameter("ip");
+		
+		int count = 0;
 		
 		if (reid != null) {
 			id = reid;
@@ -172,7 +174,7 @@ public class MainController {
 			System.out.println("광고번호 : " + adno);
 			
 			try {
-				Client client = new Client("192.168.1.162",9999); // tcp/ip server ip
+				Client client = new Client("192.168.43.92",9999); // tcp/ip server ip
 				System.out.println("target ip : " + reid + "target adno : " + adno);
 				client.startClient(Integer.toString(adno), reid);
 			} catch (IOException e) {
@@ -198,18 +200,18 @@ public class MainController {
 				conn.setDoOutput(true);
 
 				conn.setRequestProperty("Authorization",
-						"key=AAAA6dOwMkQ:APA91bEkmLbN6Fvg-uAHNVOnNO7gbfDt6hgfYR1WInC8myIQviXdUIpC5F65wJvVVQ5G1ClRB49RNqFf4TGj-_zK_7IPmYCen8E509jXdz6bAcyeQPPBrp6xoM5gGZ1b5NpqMDp43qiN");
+						"key = server key");
 				conn.setRequestProperty("Content-Type", "application/json");
 
 				JSONObject json = new JSONObject();
 				//json.put("to","e5YHYOgrvXk:APA91bG3CV853zSOEr5_WKcS0m5xqva9fnV2dePFZfknBdjg8DzIy4X545_nlsMHivkGkSe_T2y_LvjmOapjKToOUfGH4VOs5Y1Hk4P86rSP6F39VMg_ytp4PN-gutWIW-nYO8pV6LlH");
 				
 				//pad
-				json.put("to","frMmbNfgS4qEtmDPCKP9i3:APA91bG5PVImAGHP74rUDfSwAY3q300WEXZG42cti5wJVCWrCuiuRQdysYyEXKByKyQ3gPDARoeb9g17HO28WZxWUfEPjA9uWEzAXyyRBQbegvNZXchJLGH3vhsmeGIZBt-b5pjRcz7e");
+				json.put("to","pad token");
 				JSONObject info = new JSONObject();
 				JSONObject data = new JSONObject();
-				info.put("title", "***맞춤 광고가 도착했습니다***");
-				info.put("body", "확인하기");
+				info.put("title", "How about this?");
+				info.put("body", "check 40% coupon!");
 				json.put("notification", info);
 
 				data.put("advertisementno",advertisementno);
