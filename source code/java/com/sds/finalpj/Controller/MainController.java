@@ -204,8 +204,7 @@ public class MainController {
 				conn.setRequestProperty("Content-Type", "application/json");
 
 				JSONObject json = new JSONObject();
-				//json.put("to","e5YHYOgrvXk:APA91bG3CV853zSOEr5_WKcS0m5xqva9fnV2dePFZfknBdjg8DzIy4X545_nlsMHivkGkSe_T2y_LvjmOapjKToOUfGH4VOs5Y1Hk4P86rSP6F39VMg_ytp4PN-gutWIW-nYO8pV6LlH");
-				
+
 				//pad
 				json.put("to","pad token");
 				JSONObject info = new JSONObject();
