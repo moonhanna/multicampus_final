@@ -79,7 +79,7 @@
 >
 > 클라이언트 앱
 >
-> ![cardregi](https://user-images.githubusercontent.com/36683607/80897745-1861c600-8d37-11ea-815f-8e6af2935913.gif){ width=50% }
+> ![cardregi](https://user-images.githubusercontent.com/36683607/80897745-1861c600-8d37-11ea-815f-8e6af2935913.gif)
 >
 > ![apppay](https://user-images.githubusercontent.com/36683607/80897677-4d214d80-8d36-11ea-99d2-0f6a3722f891.gif)
 >
